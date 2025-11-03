@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>¿Qué es 5G y cómo funciona? • TechBits</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<div class="container">
+
+<nav class="nav">
+  <div class="logo">TechBits • Blog</div>
+  <div>
+    <a href="../index.html">Inicio</a>
+    <span style="opacity:.4">|</span>
+    <a href="post1.html">5G</a>
+    <a href="post2.html">IA</a>
+    <a href="post3.html">Docker</a>
+  </div>
+</nav>
+
+<article class="article">
+  <img class="banner" src="../assets/antenna.svg" alt="Antena representando 5G" />
+
+  <h1>¿Qué es 5G y cómo funciona realmente?</h1>
+  <p class="meta">Publicado: 03/11/2025 · Categoría: Redes</p>
+
+  <p>
+    5G es la <strong>quinta generación</strong> de redes móviles. No es solo “más velocidad” que 4G:
+    rediseña la arquitectura de núcleo (<strong>5GC</strong>), introduce <strong>network slicing</strong>,
+    <strong>MIMO masivo</strong> y <strong>beamforming</strong>, y habilita tres grandes familias de servicios:
+    <strong>eMBB</strong> (banda ancha móvil mejorada), <strong>mMTC</strong> (IoT masivo) y
+    <strong>URLLC</strong> (comunicaciones ultra-confiables y de baja latencia).
+  </p>
+
+  <!-- Índice -->
+  <h2>Contenido</h2>
+  <ul>
+    <li><a href="#caracteristicas">Características clave</a></li>
+    <li><a href="#espectro">Espectro y por qué es rápido</a></li>
+    <li><a href="#arquitectura">Arquitectura: NSA vs SA, VoNR</a></li>
+    <li><a href="#tecnologias">Tecnologías habilitadoras</a></li>
+    <li><a href="#comparativa">4G vs 5G (tabla)</a></li>
+    <li><a href="#casos">Casos de uso reales</a></li>
+    <li><a href="#metricas">Métricas y objetivos</a></li>
+    <li><a href="#seguridad">Seguridad y privacidad</a></li>
+    <li><a href="#limitaciones">Limitaciones y mitos comunes</a></li>
+    <li><a href="#faq">FAQ</a> & <a href="#glosario">Glosario</a></li>
+  </ul>
+
+  <h2 id="caracteristicas">Características clave</h2>
+  <ul>
+    <li><strong>Velocidad pico</strong>: teórica de <em>hasta</em> ~10 Gbps en mmWave; típica de 100–900 Mbps en banda media.</li>
+    <li><strong>Latencia</strong>: por debajo de 10 ms en radio; en URLLC se diseña para <strong>&lt;5 ms</strong> extremo a extremo en entornos controlados.</li>
+    <li><strong>Capacidad</strong>: más usuarios por celda gracias a MIMO masivo y espectro adicional.</li>
+    <li><strong>Eficiencia energética</strong>: perfiles para IoT que duermen la mayor parte del tiempo.</li>
+  </ul>
+
+  <h2 id="espectro">Espectro: ¿por qué es tan rápido?</h2>
+  <p>5G utiliza tres rangos principales de frecuencia, cada uno con <em>trade-offs</em>:</p>
+  <ul>
+    <li><strong>Banda baja</strong> (600–900 MHz): gran cobertura y penetración; velocidades moderadas.</li>
+    <li><strong>Banda media</strong> (1–6 GHz, “sub-6”, p.ej. 2.6/3.5 GHz): equilibrio ideal alcance/velocidad.</li>
+    <li><strong>mmWave</strong> (24–39+ GHz): altísima capacidad y velocidad; alcance corto y sensible a obstáculos.</li>
+  </ul>
+  <p>
+    Además, 5G NR soporta múltiples <strong>anchos de canal</strong> (p. ej., 20/40/60/80/100 MHz en sub-6; 100–400 MHz en mmWave) y
+    <strong>carrier aggregation</strong> para sumar espectro. Con <strong>DSS</strong> (Dynamic Spectrum Sharing), 4G y 5G
+    comparten bandas dinámicamente durante la transición.
+  </p>
+
+  <h2 id="arquitectura">Arquitectura: NSA vs SA, VoNR</h2>
+  <ul>
+    <li><strong>NSA (Non-Standalone)</strong>: 5G NR para radio, pero el <em>core</em> sigue siendo 4G EPC. Ventaja: despliegue rápido.</li>
+    <li><strong>SA (Standalone)</strong>: radio y <strong>5G Core (5GC)</strong> nativos. Permite <strong>network slicing</strong>, <strong>QoS</strong> avanzada y <strong>VoNR</strong> (voz sobre 5G).</li>
+    <li><strong>VoNR vs EPS Fallback</strong>: si no hay VoNR, la voz cae a 4G (EPS FB). Con SA maduro, la voz ya viaja totalmente en 5G.</li>
+  </ul>
+
+  <h2 id="tecnologias">Tecnologías habilitadoras</h2>
+  <ul>
+    <li><strong>MIMO masivo</strong> y <strong>beamforming</strong>: más antenas y direccionamiento de la señal hacia cada usuario.</li>
+    <li><strong>TDD/FDD</strong>: modos de dúplex; TDD (en banda media) facilita ajustar subida/bajada según la carga.</li>
+    <li><strong>Numerología NR</strong>: espaciamiento de subportadora de <strong>15/30/60/120 kHz</strong> (y más en mmWave) para latencias menores.</li>
+    <li><strong>Network slicing</strong>: particiones lógicas de red con garantías: p.ej. un <em>slice</em> para URLLC y otro para IoT.</li>
+    <li><strong>MEC/Edge</strong>: computación en el borde para acercar aplicaciones (AR/VR, industria 4.0) y reducir la latencia real.</li>
+  </ul>
+
+  <h2 id="comparativa">Comparativa 4G vs 5G</h2>
+  <div style="overflow:auto;">
+  <table style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,.2); padding:8px;">Aspecto</th>
+        <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,.2); padding:8px;">4G (LTE)</th>
+        <th style="text-align:left; border-bottom:1px solid rgba(255,255,255,.2); padding:8px;">5G (NR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px;">Arquitectura</td>
+        <td style="padding:8px;">EPC monolítico</td>
+        <td style="padding:8px;">5GC nativo en nube, <em>slicing</em></td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Espectro</td>
+        <td style="padding:8px;">Sub-3 GHz</td>
+        <td style="padding:8px;">Baja, media y mmWave</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Velocidad pico</td>
+        <td style="padding:8px;">~1 Gbps (4G+)</td>
+        <td style="padding:8px;">Hasta ~10 Gbps (mmWave)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Latencia</td>
+        <td style="padding:8px;">~20–50 ms</td>
+        <td style="padding:8px;">&lt;10 ms; URLLC apunta a &lt;5 ms</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">IoT masivo</td>
+        <td style="padding:8px;">LTE-M / NB-IoT</td>
+        <td style="padding:8px;">mMTC con perf. energía/escala superiores</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Voz</td>
+        <td style="padding:8px;">VoLTE</td>
+        <td style="padding:8px;">VoNR (o EPS Fallback)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="casos">Casos de uso reales</h2>
+  <ul>
+    <li><strong>Industria 4.0</strong>: robots colaborativos y control en tiempo casi real.</li>
+    <li><strong>Salud</strong>: telecirugía, monitoreo remoto con QoS garantizada.</li>
+    <li><strong>Transporte</strong>: V2X, gestión de tráfico, flotas autónomas.</li>
+    <li><strong>Entretenimiento</strong>: AR/VR multiusuario, eventos en vivo 8K.</li>
+    <li><strong>Ciudades inteligentes</strong>: sensorización masiva con mMTC.</li>
+  </ul>
+
+  <h2 id="metricas">Métricas y objetivos (KPIs)</h2>
+  <ul>
+    <li><strong>Velocidad de usuario</strong> sostenida: 50–200+ Mbps en banda media (depende del despliegue).</li>
+    <li><strong>Latencia extremo a extremo</strong>: 5–20 ms típica; &lt;5 ms en escenarios URLLC muy controlados.</li>
+    <li><strong>Confiabilidad</strong> (URLLC): 99.999% en enlaces críticos.</li>
+    <li><strong>Densidad de conexiones</strong> (mMTC): hasta 10<sup>6</sup> dispositivos/km² diseñados.</li>
+  </ul>
+
+  <h2 id="seguridad">Seguridad y privacidad</h2>
+  <ul>
+    <li><strong>5G AKA</strong>: autenticación reforzada y <em>subscriber privacy</em> (SUCI).</li>
+    <li><strong>Segmentación</strong> por <em>slices</em>: reduce superficie de ataque y aisla servicios.</li>
+    <li><strong>MEC</strong>: requiere buenas prácticas de <em>zero-trust</em> en el borde.</li>
+  </ul>
+
+  <h2 id="limitaciones">Limitaciones y mitos</h2>
+  <ul>
+    <li><strong>mmWave</strong> no atraviesa bien paredes; ideal para exteriores o <em>hotspots</em> densos.</li>
+    <li><strong>La “latencia cero” no existe</strong>: hay límites físicos (propagación, procesamiento, backbone).</li>
+    <li><strong>Cobertura vs capacidad</strong>: más velocidad suele requerir más densidad de celdas.</li>
+  </ul>
+
+  <h2 id="faq">FAQ</h2>
+  <details>
+    <summary>¿Necesito un teléfono nuevo para 5G?</summary>
+    <p>Sí, debe soportar 5G NR y las bandas usadas por tu operador. Para voz nativa en 5G, además debe soportar VoNR (si tu red lo ofrece).</p>
+  </details>
+  <details>
+    <summary>¿Por qué mi 5G a veces no es más rápido que 4G?</summary>
+    <p>Depende de la banda, carga de la celda, backhaul y si estás en NSA (limitado por el core 4G) o SA.</p>
+  </details>
+  <details>
+    <summary>¿5G gasta más batería?</summary>
+    <p>Inicialmente puede, por búsqueda de celdas o bandas altas; con SA maduro y gestión moderna, tiende a estabilizarse.</p>
+  </details>
+
+  <h2 id="glosario">Glosario breve</h2>
+  <ul>
+    <li><strong>eMBB</strong>: banda ancha móvil mejorada.</li>
+    <li><strong>mMTC</strong>: comunicaciones masivas tipo máquina (IoT).</li>
+    <li><strong>URLLC</strong>: baja latencia y alta confiabilidad.</li>
+    <li><strong>VoNR</strong>: voz nativa sobre 5G.</li>
+    <li><strong>DSS</strong>: compartición dinámica de espectro con 4G.</li>
+  </ul>
+
+  <hr/>
+  <p><a href="../index.html">← Volver al inicio</a></p>
+</article>
+
+<footer>© 2025 TechBits Blog · Hecho con HTML+CSS</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inicio • TechBits</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="index.html" aria-label="Ir al inicio">TechBits • Blog</a>
+    <nav class="primary-nav" aria-label="Navegación principal">
+      <a class="nav__link is-active" href="index.html" aria-current="page">Inicio</a>
+      <a class="nav__link" href="posts/post1.html">5G</a>
+      <a class="nav__link" href="posts/post2.html">IA</a>
+      <a class="nav__link" href="posts/post3.html">Docker</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Explora tecnología en píldoras</h1>
+    <p class="meta">Tres entradas destacadas: 5G, IA generativa vs tradicional y Docker.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="posts/post1.html">Leer la primera entrada</a>
+      <a class="btn btn--ghost" href="posts/post2.html">Ver IA</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="lista-articulos">
+    <h2 id="lista-articulos" class="visually-hidden">Artículos</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="assets/antenna.svg" alt="Ilustración de antena 5G" />
+        <div class="content">
+          <span class="badge">Redes</span>
+          <h3><a class="card__link" href="posts/post1.html">¿Qué es 5G y cómo funciona?</a></h3>
+          <p>Velocidades gigabit, baja latencia y casos de uso reales.</p>
+          <a class="btn btn--tiny" href="posts/post1.html">Leer</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/ai.svg" alt="Ilustración IA" />
+        <div class="content">
+          <span class="badge">Inteligencia Artificial</span>
+          <h3><a class="card__link" href="posts/post2.html">IA generativa vs IA tradicional</a></h3>
+          <p>De clasificadores a modelos que generan contenido: diferencias y usos.</p>
+          <a class="btn btn--tiny" href="posts/post2.html">Leer</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/docker.svg" alt="Ilustración Docker" />
+        <div class="content">
+          <span class="badge">DevOps</span>
+          <h3><a class="card__link" href="posts/post3.html">Docker y contenedores</a></h3>
+          <p>Empaqueta, distribuye y ejecuta aplicaciones de forma portátil.</p>
+          <a class="btn btn--tiny" href="posts/post3.html">Leer</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__content">
+    <small>© 2025 TechBits Blog · Hecho con HTML + CSS</small>
+    <nav class="footer-nav" aria-label="Navegación secundaria">
+      <a href="posts/post1.html">5G</a>
+      <a href="posts/post2.html">IA</a>
+      <a href="posts/post3.html">Docker</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

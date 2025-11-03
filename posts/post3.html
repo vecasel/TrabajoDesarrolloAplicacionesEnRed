@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Docker y contenedores • TechBits</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<div class="container">
+
+<nav class="nav">
+  <div class="logo">TechBits • Blog</div>
+  <div>
+    <a href="../index.html">Inicio</a>
+    <span style="opacity:.4">|</span>
+    <a href="post1.html">5G</a>
+    <a href="post2.html">IA</a>
+    <a href="post3.html">Docker</a>
+  </div>
+</nav>
+
+<article class="article">
+  <img class="banner" src="../assets/docker.svg" alt="Iconos de contenedores estilo Docker" />
+
+  <h1>Docker y el mundo de los contenedores: la revolución DevOps</h1>
+  <p class="meta">Publicado: 03/11/2025 · Categoría: DevOps</p>
+
+  <p>
+    Docker permite empaquetar una aplicación y todas sus dependencias en un <strong>contenedor</strong> 
+    ligero, portátil y reproducible. Esto se traduce en despliegues rápidos y seguros, desde laptops 
+    hasta servidores en la nube.
+  </p>
+
+  <h2>Contenido</h2>
+  <ul>
+    <li><a href="#diferencia">¿Qué diferencia a Docker de una Máquina Virtual?</a></li>
+    <li><a href="#como-funciona">¿Cómo funciona internamente?</a></li>
+    <li><a href="#componentes">Componentes clave: imágenes, contenedores, redes, volúmenes</a></li>
+    <li><a href="#dockerfile">Ejemplo de Dockerfile (explicado)</a></li>
+    <li><a href="#buenas">Buenas prácticas reales</a></li>
+    <li><a href="#comandos">Top comandos para el día a día</a></li>
+    <li><a href="#seguridad">Seguridad y distroless</a></li>
+    <li><a href="#faq">FAQ + Glosario</a></li>
+  </ul>
+
+  <h2 id="diferencia">Docker vs Máquinas Virtuales</h2>
+  <div style="overflow:auto;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,.2);text-align:left;">Máquina Virtual (VM)</th>
+      <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,.2);text-align:left;">Contenedor Docker</th>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Incluye sistema operativo completo</td>
+      <td style="padding:8px;">Comparte kernel del host</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Arranque lento</td>
+      <td style="padding:8px;">Arranque <strong>instantáneo</strong></td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Pesado (GBs)</td>
+      <td style="padding:8px;">Ligero (MBs)</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Menos densidad de apps</td>
+      <td style="padding:8px;">Muchas instancias por host</td>
+    </tr>
+  </table>
+  </div>
+
+  <h2 id="como-funciona">¿Cómo funciona Docker?</h2>
+  <p>
+    Docker usa tecnologías del kernel Linux como <strong>namespaces</strong> y 
+    <strong>cgroups</strong> para aislar procesos:
+  </p>
+  <ul>
+    <li><strong>Namespaces</strong>: separar vistas del sistema (puertos, procesos, userspace)</li>
+    <li><strong>cgroups</strong>: limitar memoria, CPU, I/O</li>
+    <li><strong>UnionFS</strong>: imágenes por capas para compartir lo común</li>
+  </ul>
+
+  <h2 id="componentes">Componentes principales</h2>
+  <ul>
+    <li><strong>Imagen</strong>: plantilla inmutable de una app (capas)</li>
+    <li><strong>Contenedor</strong>: instancia en ejecución de una imagen</li>
+    <li><strong>Volúmenes</strong>: persistencia fuera del contenedor</li>
+    <li><strong>Redes</strong>: comunicación interna o externa</li>
+  </ul>
+
+  <h2 id="dockerfile">Ejemplo de Dockerfile (Node.js)</h2>
+  <code># Etapa de build
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+
+# Etapa final (más ligera)
+FROM node:20-slim
+WORKDIR /app
+COPY --from=build /app ./
+CMD ["node","server.js"]
+  </code>
+  <p><strong>Multi-stage builds</strong> = imágenes más pequeñas y seguras</p>
+
+  <h2 id="buenas">Buenas prácticas</h2>
+  <ul>
+    <li>Usar imágenes <strong>alpine</strong> o <strong>distroless</strong> para reducir tamaño y superficie de ataque.</li>
+    <li>Incluir un <code>.dockerignore</code> para excluir archivos innecesarios.</li>
+    <li>Fijar versiones de imágenes para garantizar reproducibilidad.</li>
+    <li>Evitar usar <code>root</code> dentro del contenedor.</li>
+    <li>Usar multi-stage para producción.</li>
+  </ul>
+
+  <h2 id="comandos">Comandos esenciales</h2>
+  <code># Crear imagen
+docker build -t miapp .
+
+# Ejecutar contenedor
+docker run -p 3000:3000 miapp
+
+# Listar contenedores
+docker ps -a
+
+# Ver logs
+docker logs <id>
+
+# Eliminar contenedor/imágenes
+docker rm <id> ; docker rmi <imagen>
+  </code>
+
+  <h2 id="seguridad">Seguridad y “distroless”</h2>
+  <p>
+    Las imágenes <strong>distroless</strong> no incluyen bash ni paquetes innecesarios, 
+    reduciendo el vector de ataque. Para apps críticas se recomiendan junto a:
+  </p>
+  <ul>
+    <li><strong>Escaneo de imágenes</strong> (Snyk, Trivy)</li>
+    <li><strong>Firmas de imágenes</strong> (Notary v2, Cosign)</li>
+    <li><strong>Principio de mínimo privilegio</strong></li>
+  </ul>
+
+  <h2 id="faq">FAQ & Glosario</h2>
+  <details>
+    <summary>¿Docker reemplaza las VMs?</summary>
+    <p>No siempre. Las VMs siguen siendo mejores para aislamiento fuerte o sistemas operativos distintos en un mismo host.</p>
+  </details>
+  <details>
+    <summary>¿Qué pasa si borro un contenedor?</summary>
+    <p>Si no usas volúmenes, los datos se pierden. Docker persiste solo lo explícito.</p>
+  </details>
+
+  <p><strong>Glosario:</strong></p>
+  <ul>
+    <li><strong>DevOps:</strong> cultura para entregar software rápido y con calidad.</li>
+    <li><strong>Registry:</strong> repositorio de imágenes (Docker Hub, ECR, GCR).</li>
+    <li><strong>Orquestación:</strong> gestión de clusters (Kubernetes, Swarm).</li>
+  </ul>
+
+  <hr/>
+  <p><a href="../index.html">← Volver al inicio</a></p>
+
+</article>
+
+<footer>© 2025 TechBits Blog · Hecho con HTML+CSS</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IA generativa vs IA tradicional • TechBits</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<div class="container">
+
+<nav class="nav">
+  <div class="logo">TechBits • Blog</div>
+  <div>
+    <a href="../index.html">Inicio</a>
+    <span style="opacity:.4">|</span>
+    <a href="post1.html">5G</a>
+    <a href="post2.html">IA</a>
+    <a href="post3.html">Docker</a>
+  </div>
+</nav>
+
+<article class="article">
+  <img class="banner" src="../assets/ai.svg" alt="Chip con letras AI" />
+
+  <h1>IA generativa vs IA tradicional: ¿qué cambia realmente?</h1>
+  <p class="meta">Publicado: 03/11/2025 · Categoría: Inteligencia Artificial</p>
+
+  <p>
+    La Inteligencia Artificial ha evolucionado desde modelos centrados en <strong>clasificar o predecir</strong>,
+    hasta sistemas capaces de <strong>crear contenido original</strong> en texto, imagen, audio o incluso código.
+    Este artículo explora las diferencias entre la <strong>IA tradicional</strong> y la <strong>IA generativa</strong>,
+    su tecnología base, casos de uso, riesgos y desafíos éticos.
+  </p>
+
+  <h2>Contenido</h2>
+  <ul>
+    <li><a href="#tradicional">¿Qué es IA tradicional?</a></li>
+    <li><a href="#generativa">¿Qué es IA generativa?</a></li>
+    <li><a href="#tabla">Comparativa técnica</a></li>
+    <li><a href="#modelos">Algoritmos y modelos populares</a></li>
+    <li><a href="#usos">Casos de uso actuales</a></li>
+    <li><a href="#riesgos">Riesgos y desafíos</a></li>
+    <li><a href="#futuro">Lo que viene para el futuro</a></li>
+    <li><a href="#faq">FAQ y Glosario</a></li>
+  </ul>
+
+  <h2 id="tradicional">IA tradicional</h2>
+  <p>
+    Busca tomar decisiones a partir de <strong>datos estructurados</strong>.
+    El objetivo suele ser <strong>clasificar</strong>, <strong>predecir</strong> o <strong>detectar patrones</strong>.
+  </p>
+  <p><em>Ejemplos cotidianos:</em> detección de spam, recomendaciones de productos, análisis de riesgo crediticio.</p>
+  <ul>
+    <li><b>Entrada:</b> variables numéricas o categóricas (features).</li>
+    <li><b>Salida:</b> etiquetas, puntuaciones, predicciones.</li>
+    <li><b>Datos:</b> generalmente <strong>estructurados</strong> (tablas).</li>
+    <li><b>Calidad de datos</b>: crítica para buenas predicciones.</li>
+  </ul>
+
+  <h2 id="generativa">IA generativa</h2>
+  <p>
+    Diseñada para <strong>generar nuevos datos</strong> basándose en el aprendizaje profundo. 
+    Utiliza modelos de lenguaje e imágenes entrenados con enormes conjuntos de datos, aprendiendo
+    <strong>representaciones complejas</strong> del mundo.
+  </p>
+  <p><em>Ejemplos:</em> ChatGPT, Stable Diffusion, DALL·E, Sora.</p>
+  <ul>
+    <li><b>Entrada:</b> prompts o instrucciones naturales.</li>
+    <li><b>Salida:</b> contenido creado desde cero.</li>
+    <li><b>Datos:</b> información diversa (texto, imagen, audio, video).</li>
+    <li><b>Aprendizaje:</b> modelos fundacionales y transformers.</li>
+  </ul>
+
+  <h2 id="tabla">Comparativa técnica</h2>
+  <div style="overflow:auto;">
+  <table style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid rgba(255,255,255,.2);">Aspecto</th>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid rgba(255,255,255,.2);">IA Tradicional</th>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid rgba(255,255,255,.2);">IA Generativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px;">Tarea principal</td>
+        <td style="padding:8px;">Clasificar / predecir</td>
+        <td style="padding:8px;">Crear contenido</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Entrada típica</td>
+        <td style="padding:8px;">Features</td>
+        <td style="padding:8px;">Prompts naturales</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Datos</td>
+        <td style="padding:8px;">Estructurados</td>
+        <td style="padding:8px;">Texto/imagen/audio</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Explicabilidad</td>
+        <td style="padding:8px;">Más alta</td>
+        <td style="padding:8px;">Compleja (caja negra)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;">Costo entrenamiento</td>
+        <td style="padding:8px;">Moderado</td>
+        <td style="padding:8px;">Muy alto</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="modelos">Modelos populares</h2>
+  <p><strong>IA tradicional:</strong></p>
+  <ul>
+    <li>Regresión lineal y logística</li>
+    <li>Árboles de decisión y Random Forest</li>
+    <li>SVM, KNN, Clustering (K-Means)</li>
+  </ul>
+
+  <p><strong>IA generativa:</strong></p>
+  <ul>
+    <li><strong>Transformers</strong> (GPT, BERT, T5)</li>
+    <li><strong>Difusión</strong> (como Stable Diffusion)</li>
+    <li><strong>GANs</strong> para imágenes y arte</li>
+    <li><strong>RNNs/LSTMs</strong> para audio/tiempo</li>
+  </ul>
+
+  <h2 id="usos">Casos de uso actuales</h2>
+  <ul>
+    <li>Asistentes conversacionales inteligentes</li>
+    <li>Diseño de productos, UX y creatividad</li>
+    <li>Generación de código y depuración</li>
+    <li>Copywriting y creación de campañas</li>
+    <li>Simulación molecular y diseño de fármacos</li>
+    <li>Generación de escenarios o personajes en videojuegos</li>
+  </ul>
+
+  <h2 id="riesgos">Riesgos y desafíos</h2>
+  <ul>
+    <li><strong>Alucinaciones</strong>: inventar datos falsos con seguridad excesiva.</li>
+    <li><strong>Derechos de autor</strong>: entrenamiento con contenido protegido.</li>
+    <li><strong>Sesgos</strong>: reproducir o amplificar prejuicios sociales.</li>
+    <li><strong>Profunda desinformación</strong>: deepfakes y manipulación.</li>
+    <li><strong>Privacidad</strong>: riesgo de reconstrucción de datos sensibles.</li>
+  </ul>
+
+  <h2 id="futuro">¿Hacia dónde va la IA?</h2>
+  <p>
+    El futuro apunta a modelos más <strong>eficientes</strong>, con mejor
+    <strong>razonamiento lógico</strong> y mayor <strong>gobernanza ética</strong>.
+    Veremos más IA en productividad personal, industria, educación y salud.
+  </p>
+  <p>
+    El reto será equilibrar innovación con regulación y transparencia.
+  </p>
+
+  <h2 id="faq">FAQ & Glosario</h2>
+  <details>
+    <summary>¿La IA sustituirá todos los trabajos?</summary>
+    <p>No. La IA cambia tareas, pero los humanos seguirán siendo fundamentales en toma de decisiones, ética y creatividad.</p>
+  </details>
+  <details>
+    <summary>¿Un modelo generativo puede razonar?</summary>
+    <p>Aunque puede simular razonamiento, sigue siendo estadístico: aprende patrones, no significados.</p>
+  </details>
+
+  <p><strong>Glosario:</strong></p>
+  <ul>
+    <li><strong>Prompt:</strong> instrucción dada a un modelo generativo.</li>
+    <li><strong>Modelo Fundacional:</strong> modelo grande y generalista entrenado en grandes cantidades de datos.</li>
+    <li><strong>Deepfake:</strong> contenido falso generado con IA.</li>
+  </ul>
+
+  <hr/>
+  <p><a href="../index.html">← Volver al inicio</a></p>
+
+</article>
+
+<footer>© 2025 TechBits Blog · Hecho con HTML+CSS</footer>
+
+</div>
+</body>
+</html>
